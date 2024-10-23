@@ -246,6 +246,7 @@
                         const roomSound = document.getElementById(`${room.classList[1]}-sound`); // room1-sound, room2-sound, room3-sound
                         roomSound.currentTime = 0; 
                         roomSound.play(); 
+                        roomSound.volume = 0.4;
                     } else {
                         room.src = room.src.replace('roomp', 'room'); 
                         room.classList.remove('hovered');
