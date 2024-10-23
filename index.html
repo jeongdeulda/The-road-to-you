@@ -259,12 +259,12 @@
                         doorSound.play(); // door audio
                         
                         // title change none light
-                        titleImage.src = 'sky.png'; // 새로운 제목 이미지
-                        titleImage.style.width = 'calc(100% + 120px)'; // 넓이 100px 늘리기
-                        changeBackgroundButton.style.display = 'none'; // light 버튼 숨기기
+                        titleImage.src = 'sky.png'; 
+                        titleImage.style.width = 'calc(100% + 120px)'; 
+                        changeBackgroundButton.style.display = 'none'; 
 
                         // character left
-                        characterPositionX = 10; // 캐릭터를 왼쪽으로 이동
+                        characterPositionX = 10; 
                         character.style.left = `${characterPositionX}px`;
 
                         // page bacground change
@@ -292,8 +292,8 @@
                             // popup background none
                             gamePopup.style.background = 'none';
 
-                            video.style.width = '600px';  // 기존 400px + 200px
-                            video.style.height = '400px'; // 기존 200px + 200px
+                            video.style.width = '600px';  
+                            video.style.height = '400px';
                         })
                         .catch((error) => {
                             console.error("카메라에 접근할 수 없습니다.", error);
