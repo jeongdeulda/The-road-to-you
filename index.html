@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>너에게로 가는 길</title>
     <style>
-        /* 기본 설정 */
         body {
             margin: 0;
-            background: url('roomblack.png') no-repeat center center fixed; /* 배경 이미지 추가 */
-            background-size: cover; /* 이미지가 화면을 가득 채우도록 설정 */
+            background: url('roomblack.png') no-repeat center center fixed; 
+            background-size: cover; 
             background-color: black;
             overflow: hidden;
             display: flex;
@@ -18,7 +17,7 @@
 
         }
 
-        /* 상단 제목 */
+        /* title */
         #title-container {
             text-align: center;
             margin-top: 20px;
@@ -27,53 +26,53 @@
             margin-top: 60px;
         }
 
-        /* 배경 전환 버튼 */
+        /* button */
         #change-background {
             background: none;
             border: none;
             cursor: pointer;
             margin-top: -90px;
-            position: relative; /* 상대 위치 설정 */
-            left: -55px; /* 왼쪽으로 20px 이동 */
+            position: relative; 
+            left: -55px; 
         }
 
         #change-background img {
-            width: 120px; /* 버튼 크기를 줄이기 위해 이미지 너비 조정 */
-            transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
+            width: 120px;
+            transition: opacity 0.3s ease; 
         }
 
-        /* Hover 상태에서 lighton.png로 변경 */
+        /* Hover  lighton.png */
         #change-background:hover img {
-            content: url('lighton.png'); /* 호버 시 이미지 변경 */
+            content: url('lighton.png'); 
         }
 
-        /* 게임 영역 */
+        /* game */
         #game-area {
             position: relative;
             width: 100%;
-            height: 60vh; /* 게임 영역이 더 잘 보이도록 높이를 줄임 */
-            margin-top: -80px; /* 게임 영역을 40px 위로 이동 */
+            height: 60vh; 
+            margin-top: -80px; 
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* 캐릭터 */
+        /* character */
         #character {
             position: absolute;
             width: 140px;
             height: 200px;
-            background-image: url('character.gif'); /* 캐릭터 GIF 이미지 */
-            background-size: cover; /* GIF가 크기에 맞게 채워지도록 */
-            left: 50px; /* 캐릭터의 초기 위치 */
-            top: 50%; /* 수직 중앙에 위치 */
+            background-image: url('character.gif'); 
+            background-size: cover; 
+            left: 50px; 
+            top: 50%; 
             transform: translateY(-50%);
-            z-index: 5; /* 다른 PNG들보다 위에 위치 */
-            visibility: hidden; /* 초기 상태에서는 숨기기 */
+            z-index: 5;
+            visibility: hidden; 
         }
 
-        /* 방 사이의 간격 조정 */
+        /* room gap */
         #room-container {
             margin-top: -120px;
             display: flex;
@@ -95,31 +94,30 @@
         }
 
 
-/* 인디 게임 팝업 스타일 */
+/* popup */
 #game-popup {
     position: fixed;
-    top: 50%; /* 화면의 중간에 위치 */
-    left: 50%; /* 화면의 중간에 위치 */
-    transform: translate(-50%, -50%); /* 정확히 중앙에 위치 */
-    width: 800px; /* 팝업 가로 크기 */
-    height: 500px; /* 팝업 세로 크기 */
-    background: white; /* 기본 배경을 흰색으로 설정 */
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 800px; 
+    height: 500px; 
+    background: white; 
     display: flex;
-    flex-direction: column-reverse; /* 요소들을 수직으로 나열 */
+    flex-direction: column-reverse; 
     align-items: center;
     z-index: 20;
-    overflow: hidden; /* 넘치는 요소 숨기기 */
+    overflow: hidden; 
     border: 2px solid black; 
 }
 
-/* 수정된 CSS */
 #video {
-    position: absolute; /* 절대 위치 설정 */
-    width: 400px; /* 캠 가로 크기 */
-    height: 500px; /* 캠 세로 크기 */
+    position: absolute; 
+    width: 400px; 
+    height: 500px;
     top: calc(50% - 50px);
-    left: 50%; /* 가로 중앙 위치 */
-    transform: translate(-50%, -50%) scaleX(-1); /* 좌우 반전 */
+    left: 50%; 
+    transform: translate(-50%, -50%) scaleX(-1); 
     z-index: 9;
     display: none; 
 }
@@ -144,12 +142,12 @@
     </style>
 </head>
 <body>
-    <!-- 상단 제목 -->
+    <!-- title -->
     <div id="title-container">
         <img id="title-image" src="title.png" alt="너에게로 가는 길">
     </div>
 
-    <!-- 배경 전환 버튼 -->
+    <!-- button -->
     <button id="change-background">
         <img src="light.png" alt="빛">
     </button>
@@ -157,7 +155,7 @@
     <audio id="door-sound" src="door.mp3" preload="auto"></audio>
 
 
-    <!-- 게임 영역 -->
+    <!-- game -->
     <div id="game-area">
         <div id="character"></div>
     <div id="room-container">
@@ -171,13 +169,13 @@
         </div>
     </div>
 
-    <!-- 캠 비디오 -->
-    <video id="video" autoplay></video> <!-- 비디오 요소 추가 -->
+    <!-- cam -->
+    <video id="video" autoplay></video> 
 
-    <!-- 인디 게임 팝업 -->
+    <!-- popup -->
     <div id="game-popup" style="display:none;">
         <img id="mirror-image" src="mirror.png" alt="Mirror">
-        <video id="video" autoplay></video> <!-- 비디오 요소는 한 번만 선언 -->
+        <video id="video" autoplay></video> 
         <button id="back-button">돌아가기</button>
     </div>
 
@@ -191,49 +189,49 @@
         const gameFrame = document.getElementById('game-frame');
         const backButton = document.getElementById('back-button');
         const titleImage = document.getElementById('title-image');
-        const video = document.getElementById('video'); // 비디오 요소 추가
+        const video = document.getElementById('video'); 
 
         let backgroundIsBlack = true;
-        let hoveredRoom = null; // 현재 hover 상태인 방을 저장하는 변수
+        let hoveredRoom = null; 
 
-        // 배경 전환 기능
+        // background change
         changeBackgroundButton.addEventListener('click', () => {
-            const audio = document.getElementById('background-music'); // 오디오 요소 가져오기
+            const audio = document.getElementById('background-music'); 
                 audio.volume = 0.7; 
 
             if (backgroundIsBlack) {
-                document.body.style.backgroundImage = "url('roomwhite.png')"; // 배경 이미지 변경
-                document.body.style.backgroundColor = "white"; // 배경 색상 변경
-                audio.play(); // 음악 재생
+                document.body.style.backgroundImage = "url('roomwhite.png')";
+                document.body.style.backgroundColor = "white"; 
+                audio.play();
             } else {
-                document.body.style.backgroundImage = "url('roomblack.png')"; // 원래 배경 이미지로 복원
-                document.body.style.backgroundColor = "black"; // 원래 배경 색상으로 복원
+                document.body.style.backgroundImage = "url('roomblack.png')"; 
+                document.body.style.backgroundColor = "black";
             }
             backgroundIsBlack = !backgroundIsBlack;
 
-            // 캐릭터를 보이도록 설정
+            // character visible
             character.style.visibility = 'visible';
         });
 
 
-            // 캐릭터 이동 기능
-            let characterPositionX = 50; // 캐릭터의 초기 X 위치
-            const moveSpeed = 10; // 이동 속도 10px
+            // character move
+            let characterPositionX = 50; 
+            const moveSpeed = 10; 
 
             document.addEventListener('keydown', (e) => {
-                // 기존의 키보드 이동 기능 유지
+                
                 if (e.key === 'ArrowRight') {
                     characterPositionX += moveSpeed;
                 } else if (e.key === 'ArrowLeft') {
                     characterPositionX -= moveSpeed;
                 }
 
-                // 캐릭터 위치 제한
+            
                 characterPositionX = Math.max(0, Math.min(characterPositionX, window.innerWidth - 50));
                 character.style.left = `${characterPositionX}px`;
 
-                // 방 이미지 hover 기능
-                hoveredRoom = null; // 매번 키를 눌렀을 때 초기화
+                // room hover
+                hoveredRoom = null; 
 
                 rooms.forEach(room => {
                     const roomRect = room.getBoundingClientRect();
@@ -242,34 +240,34 @@
                         charRect.bottom >= roomRect.top && charRect.top <= roomRect.bottom) {
                         room.src = room.dataset.hover;
                         room.classList.add('hovered');
-                        hoveredRoom = room; // 현재 캐릭터가 겹친 방을 저장
+                        hoveredRoom = room; 
 
-                        // 방 소리 재생
+                        // room audio
                         const roomSound = document.getElementById(`${room.classList[1]}-sound`); // room1-sound, room2-sound, room3-sound
-                        roomSound.currentTime = 0; // 소리 초기화
-                        roomSound.play(); // 소리 재생
+                        roomSound.currentTime = 0; 
+                        roomSound.play(); 
                     } else {
-                        room.src = room.src.replace('roomp', 'room'); // 원래 이미지로 복원
+                        room.src = room.src.replace('roomp', 'room'); 
                         room.classList.remove('hovered');
                     }
                 });
 
-                // 나가시겠습니까? 팝업 확인 시
+                // 나가시겠습니까? popup
                 if (characterPositionX >= gameArea.clientWidth - character.clientWidth) {
                     if (confirm('나가시겠습니까?')) {
                         const doorSound = document.getElementById('door-sound');
-                        doorSound.play(); // 문 소리 재생
+                        doorSound.play(); // door audio
                         
-                        // 제목 변경 및 light 버튼 숨기기
+                        // title change none light
                         titleImage.src = 'sky.png'; // 새로운 제목 이미지
                         titleImage.style.width = 'calc(100% + 120px)'; // 넓이 100px 늘리기
                         changeBackgroundButton.style.display = 'none'; // light 버튼 숨기기
 
-                        // 캐릭터를 왼쪽으로 이동
+                        // character left
                         characterPositionX = 10; // 캐릭터를 왼쪽으로 이동
                         character.style.left = `${characterPositionX}px`;
 
-                        // 페이지 배경 및 방 교체
+                        // page bacground change
                         gameArea.style.backgroundImage = 'url("out.png")';
                         rooms.forEach((room, index) => {
                             room.src = `out${index + 1}.png`;
@@ -280,7 +278,7 @@
             });
 
 
-        // Enter 키 이벤트 리스너 (hoveredRoom을 이용하여 팝업 열기)
+        // Enter event
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && hoveredRoom) {
                 const hoverSrc = hoveredRoom.dataset.hover;
@@ -288,31 +286,30 @@
                     video.style.display = 'block'; 
                     navigator.mediaDevices.getUserMedia({ video: true })
                         .then((stream) => {
-                            video.srcObject = stream; // 비디오 스트림을 video 태그에 연결
-                            video.play(); // 비디오 자동 재생
+                            video.srcObject = stream; 
+                            video.play(); 
 
-                            // 캠이 켜질 때 gamePopup 배경을 none으로 변경
+                            // popup background none
                             gamePopup.style.background = 'none';
 
-                            // 캠 크기를 가로 200px, 세로 200px씩 증가
                             video.style.width = '600px';  // 기존 400px + 200px
                             video.style.height = '400px'; // 기존 200px + 200px
                         })
                         .catch((error) => {
                             console.error("카메라에 접근할 수 없습니다.", error);
-                            alert("카메라에 접근할 수 없습니다."); // 사용자에게 알림
+                            alert("카메라에 접근할 수 없습니다."); 
                         });
 
-                    gamePopup.style.display = 'flex'; // 팝업 표시
+                    gamePopup.style.display = 'flex'; 
                 }
             }
         });
 
-        // 돌아가기 버튼 기능
+        // back button
         backButton.addEventListener('click', () => {
             gamePopup.style.display = 'none';
-            video.srcObject.getTracks().forEach(track => track.stop()); // 캠 정지
-            video.style.display = 'none'; // 비디오 숨기기
+            video.srcObject.getTracks().forEach(track => track.stop()); 
+            video.style.display = 'none';
         });
     });
 
